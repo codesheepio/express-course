@@ -4,7 +4,14 @@
   "main": "index.js",
   "author": "Supasate Choochaisri <supasate.c@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development node server",
+    "start": "NODE_ENV=production node server"
+  },
   "dependencies": {
-    "express": "^4.14.1"
+    "body-parser": "^1.16.1",
+    "compression": "^1.6.2",
+    "express": "^4.14.1",
+    "morgan": "^1.8.1"
   }
 }
