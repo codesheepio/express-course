@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const compression = require('compression')
 const bodyParser = require('body-parser')
 const sass = require('node-sass-middleware')
+const validator = require('express-validator')
 
 module.exports = function() {
   const app = express()
@@ -17,6 +18,7 @@ module.exports = function() {
     extended: true,
   }))
   app.use(bodyParser.json())
+  app.use(validator())
 
   app.set('views', './app/views')
   app.set('view engine', 'pug')
