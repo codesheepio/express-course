@@ -4,3 +4,10 @@ exports.login = function(req, res) {
     isLoggedIn: true,
   })
 }
+
+exports.logout = function(req, res) {
+  res.render('index', {
+    title: 'See you again later',
+    isLoggedIn: false,
+  })
+}
