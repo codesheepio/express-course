@@ -3,4 +3,5 @@ module.exports = function(app) {
 
   app.post('/login', user.login)
   app.post('/logout', user.logout)
+  app.post('/users', user.create)
 }
