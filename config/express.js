@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const compression = require('compression')
 const bodyParser = require('body-parser')
+const sass = require('node-sass-middleware')
 
 module.exports = function() {
   const app = express()
@@ -21,6 +22,14 @@ module.exports = function() {
   app.set('view engine', 'pug')
 
   require('../app/routes/index.routes')(app)
+
+  app.use(sass({
+    src: './sass',
+    dest: './public/css',
+    outputStyle: 'compressed',
+    prefix: '/css',
+    debug: true,
+  }))
 
   app.use(express.static('./public'))
 
