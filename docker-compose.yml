@@ -1,0 +1,6 @@
+redis:
+  image: redis:alpine
+  command: redis-server --requirepass password
+  container_name: redis
+  ports:
+    - "6379:6379"

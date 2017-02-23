@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const sass = require('node-sass-middleware')
 const validator = require('express-validator')
 const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
 
 module.exports = function() {
   const app = express()
@@ -20,6 +21,11 @@ module.exports = function() {
     secret: 'secret_key',
     resave: false,
     saveUninitialized: true,
+    store: new RedisStore({
+      host: 'localhost',
+      port: 6379,
+      pass: 'password',
+    })
   }))
   app.use(bodyParser.urlencoded({
     extended: true,
