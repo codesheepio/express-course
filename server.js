@@ -1,4 +1,8 @@
 const express = require('./config/express')
+const mongoose = require('mongoose')
+
+const uri = 'mongodb://localhost/my-project'
+const db = mongoose.connect(uri)
 
 const app = express()
 
