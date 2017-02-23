@@ -6,6 +6,7 @@ const sass = require('node-sass-middleware')
 const validator = require('express-validator')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
+const config = require('./config')
 
 module.exports = function() {
   const app = express()
@@ -18,7 +19,7 @@ module.exports = function() {
 
   app.use(session({
     name: 'session',
-    secret: 'secret_key',
+    secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
     store: new RedisStore({

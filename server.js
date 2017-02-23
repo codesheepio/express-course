@@ -1,9 +1,9 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
+const mongoose = require('./config/mongoose')
 const express = require('./config/express')
-const mongoose = require('mongoose')
 
-const uri = 'mongodb://localhost/my-project'
-const db = mongoose.connect(uri)
-
+const db = mongoose()
 const app = express()
 
 app.listen(3000)
