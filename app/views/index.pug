@@ -4,5 +4,20 @@ html
     link(href='/css/main.css', rel='stylesheet')
   body
     h1= title
+    if isLoggedIn
+      h3 You are logged in.
+      form(name='logout', method='POST', action='logout')
+        div
+          input(type='submit', value='Logout')
+    else
+      form(name='login', method='POST', action='login')
+        div
+          label(for='email') Email
+          input(name='email', type='email', placeholder='email')
+        div
+          label(for='password') Password
+          input(name='password', type='password', placeholder='password')
+        div
+          input(type='submit', value='Login')
     h2= message
     img(src='/img/logo.png', alt='Logo')

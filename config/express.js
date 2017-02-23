@@ -22,6 +22,7 @@ module.exports = function() {
   app.set('view engine', 'pug')
 
   require('../app/routes/index.routes')(app)
+  require('../app/routes/user.routes')(app)
 
   app.use(sass({
     src: './sass',
